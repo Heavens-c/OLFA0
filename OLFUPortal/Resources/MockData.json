@@ -1,0 +1,72 @@
+{
+  "students": [
+    {
+      "id": "USR-001",
+      "firstName": "Juan",
+      "lastName": "Dela Cruz",
+      "email": "juan.delacruz@olfu.edu.ph",
+      "studentID": "2024-00123",
+      "course": "BSIT",
+      "yearLevel": 2,
+      "section": "2A",
+      "phoneNumber": "+63 912 345 6789",
+      "address": "Valenzuela City, Metro Manila"
+    },
+    {
+      "id": "USR-002",
+      "firstName": "Maria",
+      "lastName": "Santos",
+      "email": "maria.santos@olfu.edu.ph",
+      "studentID": "2024-00456",
+      "course": "BSCS",
+      "yearLevel": 3,
+      "section": "3B",
+      "phoneNumber": "+63 917 654 3210",
+      "address": "Quezon City, Metro Manila"
+    }
+  ],
+  "subjects": [
+    {
+      "id": "SUBJ-001",
+      "code": "IT 312",
+      "name": "Web Development",
+      "instructor": "Prof. Maria Santos",
+      "room": "Room 301",
+      "units": 3,
+      "schedule": "MWF 9:00 AM - 10:00 AM",
+      "day": "MWF",
+      "startTime": "09:00",
+      "endTime": "10:00",
+      "colorHex": "#2E7D32",
+      "description": "Modern web development technologies including HTML5, CSS3, JavaScript, and frameworks."
+    },
+    {
+      "id": "SUBJ-002",
+      "code": "IT 314",
+      "name": "Mobile App Development",
+      "instructor": "Prof. Carlos Reyes",
+      "room": "Room 205",
+      "units": 3,
+      "schedule": "TTh 10:30 AM - 12:00 PM",
+      "day": "TTh",
+      "startTime": "10:30",
+      "endTime": "12:00",
+      "colorHex": "#1565C0",
+      "description": "Mobile application development using Swift and SwiftUI for iOS."
+    },
+    {
+      "id": "SUBJ-003",
+      "code": "IT 316",
+      "name": "Database Management",
+      "instructor": "Prof. Ana Lim",
+      "room": "Room 102",
+      "units": 3,
+      "schedule": "MWF 1:00 PM - 2:00 PM",
+      "day": "MWF",
+      "startTime": "13:00",
+      "endTime": "14:00",
+      "colorHex": "#E65100",
+      "description": "Relational database design, SQL, normalization, and administration."
+    }
+  ]
+}
