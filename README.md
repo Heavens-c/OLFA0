@@ -1,214 +1,120 @@
-# 🎓 OLFU Portal (OLP)
+# Student Portal — iOS App
 
-A modern iOS Student Portal application built with SwiftUI and MVVM architecture for Our Lady of Fatima University students.
+A student portal mobile application built with **Swift** and **SwiftUI**, developed using **Xcode**.
+
+---
 
 ## 📱 Features
 
-### 🔐 User Login & Registration
-- Secure email/password authentication
-- Input validation with real-time feedback
-- Remember Me functionality with session persistence
-- Mock API layer (Firebase-ready architecture)
+| Screen | Description |
+|---|---|
+| **Login** | Secure sign-in with email & password |
+| **Dashboard** | Overview of GPA, today's classes, and upcoming due dates |
+| **Courses** | List of enrolled courses with details (instructor, schedule, room) |
+| **Grades** | Current semester grades and full transcript with GPA summary |
+| **Assignments** | Pending, submitted, and graded assignments with due-date tracking |
+| **Schedule** | Day-by-day class schedule view with time and location |
+| **Announcements** | University notices with category filtering and unread badge |
+| **Profile** | Student info, academic summary, quick resource links, sign-out |
 
-### 📚 Subject Viewer
-- View all enrolled subjects with detailed cards
-- Subject details with instructor, room, units, and schedule
-- Search and filter subjects
-- Pull-to-refresh support
+---
 
-### 📝 Notes Management
-- Full CRUD: Create, Read, Update, Delete notes
-- Attach notes to specific subjects
-- Pin important notes
-- Search across all notes
-- Local persistence via UserDefaults
+## 🏗 Architecture
 
-### 📅 Schedule Viewer
-- Weekly and Daily view modes
-- Timeline-based daily schedule
-- Color-coded subjects
-- Current class highlight with live indicator
-- Day selector with today marker
-
-### 👤 User Profile
-- Student information display
-- Edit profile (name, phone, address)
-- Change password UI
-- Dark mode toggle
-- Sign out functionality
-
-## 🏗️ Architecture
+The app follows the **MVVM (Model–View–ViewModel)** pattern:
 
 ```
-MVVM (Model-View-ViewModel)
-├── Models      → Data structures (Codable)
-├── Views       → SwiftUI views (presentation)
-├── ViewModels  → Business logic (ObservableObject)
-└── Services    → Data access layer (protocols)
-```
-
-## 📁 Project Structure
-
-```
-OLFUPortal/
+StudentPortal/
 ├── App/
-│   ├── OLFUPortalApp.swift
-│   ├── RootView.swift
-│   └── MainTabView.swift
+│   └── StudentPortalApp.swift       # @main entry point, auth routing
 ├── Models/
-│   ├── User.swift
-│   ├── Subject.swift
-│   ├── Note.swift
-│   ├── ScheduleItem.swift
-│   └── AuthModels.swift
-├── ViewModels/
-│   ├── AuthViewModel.swift
-│   ├── DashboardViewModel.swift
-│   ├── SubjectsViewModel.swift
-│   ├── NotesViewModel.swift
-│   └── ScheduleViewModel.swift
-├── Views/
-│   ├── Authentication/
-│   │   ├── LoginView.swift
-│   │   └── RegistrationView.swift
-│   ├── Dashboard/
-│   │   └── DashboardView.swift
-│   ├── Subjects/
-│   │   ├── SubjectsListView.swift
-│   │   └── SubjectDetailView.swift
-│   ├── Notes/
-│   │   ├── NotesListView.swift
-│   │   ├── NoteDetailView.swift
-│   │   └── NoteEditorView.swift
-│   ├── Schedule/
-│   │   └── ScheduleView.swift
-│   ├── Profile/
-│   │   ├── ProfileView.swift
-│   │   ├── EditProfileView.swift
-│   │   └── ChangePasswordView.swift
-│   └── Components/
-│       ├── SharedComponents.swift
-│       └── LaunchScreenView.swift
+│   └── Models.swift                 # Student, Course, Grade, Assignment, Announcement
 ├── Services/
-│   ├── AuthService.swift
-│   ├── SubjectService.swift
-│   ├── NoteService.swift
-│   └── ScheduleService.swift
+│   ├── AuthService.swift            # Login / logout / session persistence
+│   └── DataServices.swift           # Course, Grade, Assignment, Announcement services + mock data
+├── ViewModels/
+│   └── ViewModels.swift             # ObservableObject VMs for each feature
+├── Views/
+│   ├── Auth/         LoginView.swift
+│   ├── Dashboard/    DashboardView.swift  (+ MainTabView)
+│   ├── Courses/      CoursesView.swift, CourseDetailView.swift
+│   ├── Grades/       GradesView.swift
+│   ├── Schedule/     ScheduleView.swift
+│   ├── Assignments/  AssignmentsView.swift, AssignmentDetailView.swift
+│   ├── Announcements/AnnouncementsView.swift, AnnouncementDetailView.swift
+│   ├── Profile/      ProfileView.swift
+│   └── Components/   SharedComponents.swift  (reusable UI elements)
 ├── Utilities/
-│   ├── AppTheme.swift
-│   ├── Validators.swift
-│   └── ViewModifiers.swift
-├── Resources/
-│   └── MockData.json
-├── Assets.xcassets/
-│   ├── AccentColor.colorset/
-│   └── AppIcon.appiconset/
-└── Preview Content/
+│   └── Utilities.swift              # Constants, extensions
+└── Resources/
+    ├── Info.plist
+    └── Assets.xcassets
 ```
 
-## 🛠️ Technical Stack
+---
 
-| Technology | Usage |
-|------------|-------|
-| SwiftUI | UI Framework |
-| Combine | Reactive data binding |
-| Async/Await | Asynchronous operations |
-| MVVM | Architecture pattern |
-| UserDefaults | Local data persistence |
-| Codable | JSON serialization |
-| NavigationView | Navigation (iOS 15+) |
+## 🚀 Getting Started
 
-## ⚙️ Requirements
+### Requirements
 
-- **Xcode**: 14.0 or later
-- **iOS**: 15.0 or later
-- **Swift**: 5.7 or later
-- **macOS**: Monterey 12.0 or later (for development)
+| Tool | Version |
+|---|---|
+| Xcode | 15.0+ |
+| Swift | 5.9+ |
+| iOS Deployment Target | 16.0+ |
+| Device / Simulator | iPhone or iPad |
 
-## 🚀 Setup Instructions
+### Running the App
 
-### 1. Clone or Download
-```bash
-git clone <repository-url>
-cd OLFA
-```
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/Heavens-c/OLFA0.git
+   cd OLFA0
+   ```
 
-### 2. Open in Xcode
-**Option A — Xcode Project (Recommended):**
-1. Open Xcode
-2. Select **File → New → Project**
-3. Choose **iOS → App**
-4. Set product name to `OLFUPortal`
-5. Set interface to **SwiftUI**, language to **Swift**
-6. Delete the auto-generated files
-7. Drag the `OLFUPortal/` folder into the project navigator
-8. Ensure all `.swift` files are added to the target
+2. **Open in Xcode**
+   ```bash
+   open StudentPortal.xcodeproj
+   ```
 
-**Option B — Swift Package:**
-1. Open `Package.swift` in Xcode
-2. The project will resolve automatically
+3. **Select a simulator** (e.g. iPhone 15 Pro) in the scheme selector.
 
-### 3. Configure Target
-- Set **Minimum Deployment Target** to iOS 15.0
-- Set **Bundle Identifier** to `edu.olfu.portal`
+4. **Build & Run** — press **⌘R** or click the ▶ button.
 
-### 4. Build & Run
-- Select an iPhone simulator (iPhone 15 Pro recommended)
-- Press `⌘R` to build and run
+### Demo Login
 
-## 🧪 Testing
+Use these credentials on the Login screen to sign in:
 
-### Demo Credentials
 | Field | Value |
-|-------|-------|
-| Email | `student@olfu.edu.ph` |
+|---|---|
+| Email | `student@university.edu` |
 | Password | `password123` |
 
-Alternative: `juan.delacruz@olfu.edu.ph` / `password123`
+> Tap the credential hint text on the login screen to auto-fill them.
 
-### Manual Testing Checklist
-- [ ] Login with valid credentials
-- [ ] Login with invalid credentials (verify error)
-- [ ] Register new account
-- [ ] Navigate all 5 tabs
-- [ ] View subject details
-- [ ] Create, edit, pin, and delete notes
-- [ ] Switch schedule between weekly/daily view
-- [ ] Edit profile information
-- [ ] Toggle dark mode
-- [ ] Sign out and verify session cleared
-
-## 🎨 Design System
-
-**Color Palette (OLFU Green):**
-- Primary: `#1B5E20`
-- Secondary: `#2E7D32`
-- Light: `#4CAF50`
-- Accent: `#66BB6A`
-- Pale: `#E8F5E9`
-
-**Typography:** System default (SF Pro)
-
-**Components:** Cards, badges, avatars, search bars, loading states, empty states, error banners
+---
 
 ## 📦 Dependencies
 
-**None** — This project uses only Apple's first-party frameworks:
-- SwiftUI
-- Foundation
-- Combine
-- UIKit (minimal, for shape helpers)
+**None** — the project uses only Apple frameworks:
 
-## 🔮 Future Enhancements
+- `SwiftUI` — declarative UI
+- `Combine` — reactive data flow
+- `Foundation` — data models & networking utilities
 
-- Firebase Authentication integration
-- CloudKit or Firestore for remote data sync
-- Push notifications for class reminders
-- Grade tracker module
-- Attendance tracking
-- Academic calendar view
-- Offline mode with CoreData
+No third-party package manager is required.
+
+---
+
+## 🛠 Key Implementation Notes
+
+- **Async/await** used for all service calls (simulated network delays).
+- Session persistence via `UserDefaults` (in production, use the Keychain for tokens).
+- Mock data seeded in `DataServices.swift` — swap the service implementations with real API calls when connecting to a backend.
+- All views support **dark mode** and **dynamic type** out of the box through SwiftUI's adaptive color/font system.
+
+---
 
 ## 📄 License
 
-This project is for educational purposes. © 2026 OLFU Portal Project.
+See [LICENSE](LICENSE) for details.
